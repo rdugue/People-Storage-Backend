@@ -11,7 +11,10 @@ def delete(event, context):
         }
     )
     response = {
-        "statusCode": 200
+        "statusCode": 200,
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        }
     }
 
     return response

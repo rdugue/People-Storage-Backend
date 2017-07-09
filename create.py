@@ -17,7 +17,10 @@ def create(event, context):
     table.put_item(Item=data)
     response = {
         "statusCode": 200,
-        "body": json.dumps(data)
+        "body": json.dumps(data),
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        }
     }
 
     return response

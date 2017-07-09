@@ -10,7 +10,10 @@ def people(event, context):
     result = table.scan()
     response = {
         "statusCode": 200,
-        "body": json.dumps(result['Items'])
+        "body": json.dumps(result['Items']),
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        }
     }
 
     return response

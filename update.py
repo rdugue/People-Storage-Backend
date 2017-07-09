@@ -34,13 +34,16 @@ def update(event, context):
                          '#last = :last, '
                          '#birth = :birth, '
                          '#phone = :phone, '
-                         '#zip = :phone',
+                         '#zip = :zip',
         ReturnValues='ALL_NEW',
     )
 
     response = {
         "statusCode": 200,
-        "body": json.dumps(result['Attributes'])
+        "body": json.dumps(result['Attributes']),
+        "headers": {
+            "Access-Control-Allow-Origin": "*"
+        }
     }
 
     return response
