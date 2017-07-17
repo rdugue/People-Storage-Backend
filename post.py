@@ -13,7 +13,8 @@ def create(event, context):
         raise Exception("Couldn't create the person record.")
 
     table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
-    data['id'] = str(uuid.uuid1())
+    if 'id' not in data:
+        data['id'] = str(uuid.uuid1())
     table.put_item(Item=data)
     response = {
         "statusCode": 200,

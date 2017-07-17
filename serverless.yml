@@ -42,8 +42,8 @@ functions:
           method: get
           cors: true
 
-  create:
-    handler: create.create
+  post:
+    handler: post.post
     events:
       - http:
           path: people
@@ -56,14 +56,6 @@ functions:
       - http:
           path: people/{id}
           method: get
-          cors: true
-
-  update:
-    handler: update.update
-    events:
-      - http: 
-          path: people/{id}
-          method: put
           cors: true
   
   delete:
